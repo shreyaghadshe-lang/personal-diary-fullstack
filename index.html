@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ledger &mdash; Personal Diary</title>
+    <meta name="description" content="Ledger is a calm, paper-inspired personal diary for writing entries, tracking moods and keeping streaks." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Auth screens (welcome / login / register) -->
+    <div id="auth-screen" class="auth-wrap">
+      <div class="auth-card">
+        <div class="auth-brand">
+          <div class="brand-mark">L</div>
+          <div>
+            <h1 class="brand-title">Ledger</h1>
+            <p class="label-mono">Personal Diary &middot; Est. 2026</p>
+          </div>
+        </div>
+
+        <!-- Login -->
+        <form id="login-form" class="auth-form">
+          <h2 class="auth-heading">Welcome back</h2>
+          <p class="auth-sub">Sign in to open your diary.</p>
+          <label class="field">
+            <span class="label-mono">Username</span>
+            <input type="text" id="login-username" autocomplete="username" required />
+          </label>
+          <label class="field">
+            <span class="label-mono">Password</span>
+            <input type="password" id="login-password" autocomplete="current-password" required />
+          </label>
+          <p class="form-error" id="login-error"></p>
+          <button class="btn btn-primary btn-block" type="submit">Sign in</button>
+          <p class="auth-switch">
+            New here? <a href="#" id="go-register">Create an account</a>
+          </p>
+        </form>
+
+        <!-- Register -->
+        <form id="register-form" class="auth-form hidden">
+          <h2 class="auth-heading">Create your diary</h2>
+          <p class="auth-sub">Your entries stay on this computer.</p>
+          <label class="field">
+            <span class="label-mono">Full name</span>
+            <input type="text" id="reg-name" required />
+          </label>
+          <label class="field">
+            <span class="label-mono">Username</span>
+            <input type="text" id="reg-username" required />
+          </label>
+          <label class="field">
+            <span class="label-mono">Password</span>
+            <input type="password" id="reg-password" required />
+          </label>
+          <label class="field">
+            <span class="label-mono">Confirm password</span>
+            <input type="password" id="reg-confirm" required />
+          </label>
+          <p class="form-error" id="register-error"></p>
+          <button class="btn btn-primary btn-block" type="submit">Create account</button>
+          <p class="auth-switch">
+            Already have an account? <a href="#" id="go-login">Sign in</a>
+          </p>
+        </form>
+      </div>
+      <p class="auth-foot">A quiet place for your days.</p>
+    </div>
+
+    <!-- Main application shell -->
+    <div id="app-shell" class="shell hidden">
+      <aside class="sidebar no-print">
+        <div class="side-brand">
+          <div class="brand-mark">L</div>
+          <div>
+            <div class="brand-title small">Ledger</div>
+            <div class="label-mono" id="side-user">&nbsp;</div>
+          </div>
+        </div>
+        <nav class="side-nav" id="side-nav">
+          <a href="#/dashboard" data-route="dashboard">Dashboard</a>
+          <a href="#/new" data-route="new">New Entry</a>
+          <a href="#/entries" data-route="entries">Entries</a>
+          <a href="#/calendar" data-route="calendar">Calendar</a>
+          <a href="#/favourites" data-route="favourites">Favourites</a>
+          <a href="#/moods" data-route="moods">Moods</a>
+          <a href="#/on-this-day" data-route="on-this-day">On This Day</a>
+          <a href="#/streaks" data-route="streaks">Streaks</a>
+          <a href="#/settings" data-route="settings">Settings</a>
+          <a href="#/help" data-route="help">Help</a>
+        </nav>
+        <button class="btn btn-ghost btn-block" id="sign-out">Sign out</button>
+      </aside>
+
+      <main class="main">
+        <div class="reminder no-print hidden" id="reminder-banner">
+          You haven't written anything today. <a href="#/new">Write today's page &rarr;</a>
+        </div>
+        <div id="view"></div>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

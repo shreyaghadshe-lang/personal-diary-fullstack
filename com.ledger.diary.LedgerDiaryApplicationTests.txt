@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.ledger.diary.LedgerDiaryApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 15.73 s -- in com.ledger.diary.LedgerDiaryApplicationTests
